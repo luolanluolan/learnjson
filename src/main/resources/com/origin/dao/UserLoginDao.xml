@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.origin.dao.UserLoginDao">
+    <cache></cache>
+    <select id="selectUserById" resultType="com.origin.entity.LoginInfoDto" parameterType="java.lang.Integer" >
+      select * from logininfo c where c.id=#{id}
+    </select>
+
+    <delete id="deleteUserById" parameterType="java.lang.Integer" >
+        delete from logininfo where id=#{id}
+    </delete>
+
+    <insert id="insertStudent">
+        insert into student(name,sex,age) VALUES(#{s.name},#{s.sex},#{s.age})
+    </insert>
+
+    <insert id="insertTeacher">
+       insert into teacher(tname,tsex,tage) VALUES(#{t.tName},#{t.tSex},#{t.tAge})
+    </insert>
+
+    <insert id="insertEmp">
+        insert into emp(ename,esex) VALUES(#{e.eName},#{e.eSex})
+    </insert>
+</mapper>
